@@ -1,0 +1,72 @@
+.search {
+  position: relative;
+  background-color: rgb(70, 69, 69);
+}
+#searchBar {
+  padding: 0.5rem;
+
+  background-color: rgb(48, 47, 47);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+}
+#searchBar input {
+  outline: none;
+  border: none;
+  padding: 0.3rem 0.5rem;
+}
+#searchBar button:last-child {
+  border: none;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+#searchBar button:first-child {
+  border: none;
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.searchResult {
+  padding: 0.5rem;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto;
+  gap: 1rem;
+}
+.searchResult .imageCard img {
+  width: 100%;
+  height: 100%;
+}
+.searchResult .imageCard {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  color: white;
+}
+.searchResult .imageCard div {
+  position: absolute;
+  width: 100%;
+  background-color: rgba(53, 52, 52, 0.5);
+  bottom: 0;
+  color: white;
+  padding: 0.5rem;
+}
+.searchResult .imageCard span {
+  display: block;
+  word-break: normal;
+}
+@media screen and (max-width: 480px) {
+  .searchResult {
+    display: grid;
+    margin-bottom: 0.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 1rem;
+  }
+  .searchResult .imageCard {
+    display: block;
+    height: 35vh;
+  }
+}

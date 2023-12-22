@@ -1,0 +1,23 @@
+.header {
+  width: 100%;
+  background-color: rgb(46, 45, 45);
+  padding: 0.5rem 0.5rem 0;
+}
+.header > div:first-child {
+  width: 100%;
+  padding: 0.5rem;
+  color: red;
+  display: flex;
+  justify-content: space-between;
+}
+.header button:hover {
+  color: gold;
+}
+
+.header,
+.searchBtn {
+  background-color: rgb(46, 45, 45);
+  border: none;
+  color: white;
+  margin-right: 2rem;
+}

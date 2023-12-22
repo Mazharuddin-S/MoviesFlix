@@ -1,0 +1,59 @@
+.navbar-container {
+  display: flex;
+  position: relative;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.navbar {
+  display: flex;
+  position: relative;
+  margin: 0 2rem 0 2rem;
+  overflow-x: auto;
+}
+
+.navbar::-webkit-scrollbar {
+  display: none;
+}
+
+.navbar a {
+  background-color: rgb(71, 70, 70);
+  text-decoration: none;
+  display: block;
+  color: white;
+  flex-shrink: 0;
+  border-radius: 0.2rem;
+  margin-right: 0.5rem;
+
+  padding: 0.5rem;
+}
+.navbar a:hover {
+  color: gold;
+}
+.navbar a.active {
+  background-color: red;
+}
+.navbar-container button {
+  width: 2rem;
+  height: 2rem;
+  background-color: rgb(49, 48, 48);
+  color: white;
+  border: none;
+}
+.navbar-container button:first-child {
+  position: absolute;
+  left: 0;
+}
+.navbar-container button:last-child {
+  position: absolute;
+  right: 0;
+}
+
+@media screen and (max-width: 480px) {
+  .navbar-container button {
+    display: none;
+  }
+  .navbar {
+    margin: 0;
+  }
+}

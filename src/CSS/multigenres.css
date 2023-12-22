@@ -1,0 +1,53 @@
+.multiGenres {
+  background-color: rgb(41, 41, 41);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto;
+  gap: 1rem;
+}
+.multiGenres > div:first-child {
+  background-color: rgb(41, 41, 41);
+  grid-column: 1/-1;
+  color: whitesmoke;
+  padding: 0.5rem 1rem;
+}
+.multiGenres > div:first-child svg:hover {
+  color: gray;
+}
+.multiGenres a {
+  display: flex;
+  width: 100%;
+  height: 50vh;
+}
+.multiGenres a img {
+  width: 100%;
+  height: 100%;
+}
+.multiGenres .imageCard {
+  position: relative;
+}
+.multiGenres .imageCard div {
+  position: absolute;
+  width: 100%;
+  background-color: rgba(53, 52, 52, 0.5);
+  bottom: 0;
+  color: white;
+  padding: 0.5rem;
+}
+.multiGenres .imageCard span {
+  display: block;
+  word-break: normal;
+}
+
+@media screen and (max-width: 480px) {
+  .multiGenres {
+    background-color: rgb(41, 41, 41);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 1rem;
+  }
+  .multiGenres .imageCard {
+    height: 35vh;
+  }
+}

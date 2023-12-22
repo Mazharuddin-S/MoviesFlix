@@ -1,0 +1,73 @@
+.sidebar {
+  position: fixed;
+  right: -40vw;
+  top: 0;
+  width: 40vw;
+  min-height: 100vh;
+  color: whitesmoke;
+  background-color: rgb(49, 49, 49);
+  z-index: 4;
+
+  border: 0.1rem solid whitesmoke;
+  border-top: none;
+}
+.sidebar > div > div {
+  margin: 1rem 0;
+  padding: 0.5rem;
+  border-top: 0.1rem solid gray;
+  border-bottom: 0.1rem solid gray;
+}
+
+.sidebar h3 {
+  color: red;
+  text-align: center;
+  font-weight: normal;
+}
+.sideBarGenre > div:first-child {
+  display: flex;
+  justify-content: space-between;
+}
+.sideBarGenre > div:last-child {
+  display: none;
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  height: 30vh;
+  overflow-y: scroll;
+}
+.sidebar ul li {
+  padding: 0.5rem 0;
+}
+.sidebar ul li label {
+  margin-left: 1rem;
+}
+.sidebar ul::-webkit-scrollbar {
+  width: 0.3rem;
+  background-color: gray;
+}
+.sidebar ul::-webkit-scrollbar-thumb {
+  background-color: gold;
+}
+.sidebar .closeSidebar,
+.openSidebar {
+  position: absolute;
+  left: -2rem;
+  top: 0;
+  width: 2rem;
+  border: 0.1rem solid whitesmoke;
+  border-right: none;
+  background-color: rgb(49, 49, 49);
+  color: whitesmoke;
+  height: 2rem;
+}
+.sidebar .closeSidebar:hover,
+.openSidebar:hover {
+  color: gold;
+}
+@media screen and (max-width: 480px) {
+  .sidebar {
+    width: 60vw;
+    right: -60vw;
+  }
+}

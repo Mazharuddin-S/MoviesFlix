@@ -1,0 +1,38 @@
+.details {
+  background-color: rgb(49, 49, 49);
+  min-height: 100vh;
+  width: 100vw;
+  color: white;
+}
+.details > div:first-child {
+  padding: 0.5rem 1rem;
+}
+.details button {
+  border: none;
+  background-color: rgb(49, 49, 49);
+  color: whitesmoke;
+}
+.details button:hover {
+  color: gold;
+}
+.details .description {
+  padding: 1rem;
+}
+.details .description span {
+  display: block;
+  margin-bottom: 1rem;
+}
+.details .youtubeTrailer {
+  width: 100%;
+}
+.details .youtubeTrailer iframe {
+  width: 100%;
+  height: 60vh;
+  border: 0.1rem solid gold;
+}
+
+@media screen and (max-width: 480px) {
+  .details .youtubeTrailer iframe {
+    height: 40vh;
+  }
+}
