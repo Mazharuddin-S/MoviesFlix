@@ -10,20 +10,25 @@ import { faHome, faStar } from "@fortawesome/free-solid-svg-icons";
 function Details() {
   const [data, setData] = useState({});
   const [videoKey, setVideokey] = useState("");
+  const [cast, setCast] = useState([]);
+  const [crew, setCrew] = useState([]);
   const navigate = useNavigate();
   const [searchParam] = useSearchParams();
   const movieId = searchParam.get("movieId");
 
   useEffect(() => {
     fetch(
-      `${searchById}${movieId}?api_key=${api_key}&append_to_response=videos`
+      `${searchById}${movieId}?api_key=${api_key}&append_to_response=credits,videos`
     )
       .then(res => res.json())
       .then(result => {
         setData(() => result);
         setVideokey(() => result.videos.results[0].key);
+        setCast(() => result.credits.cast);
+        setCrew(() => result.credits.crew);
       })
       .catch(err => console.log("error fetching data"));
+    window.scrollTo(0, 0);
   }, []);
 
   return (
@@ -38,14 +43,38 @@ function Details() {
       </div>
 
       <div className="description">
-        <span>{data.original_title}</span>
-
-        <span>
-          Ratings - {data.vote_average} / 10 {"  "}
+        <div>
+          <span>Title</span> - {data.original_title}
+        </div>
+        <div>
+          <span>Cast - </span>
+          {cast.map((item, index) => {
+            return (
+              index <= 8 && (
+                <span key={item.credit_id}>
+                  {item.name} {"  , "}{" "}
+                </span>
+              )
+            );
+          })}
+        </div>
+        <div>
+          <span> Director - </span>
+          {crew.map(item => {
+            return (
+              item.job.toLowerCase() == "director" && (
+                <span key={item.credit_id}>{item.name}</span>
+              )
+            );
+          })}
+        </div>
+        <div>
+          <span>Ratings - </span> {data.vote_average} / 10 {"  "}
           <FontAwesomeIcon icon={faStar} color="gold" />
-        </span>
-
-        <p>{data.overview}</p>
+        </div>
+        <div>
+          <span>Overview - </span> <br /> {data.overview}
+        </div>
       </div>
     </div>
   );

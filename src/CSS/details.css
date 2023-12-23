@@ -18,9 +18,11 @@
 .details .description {
   padding: 1rem;
 }
-.details .description span {
-  display: block;
+.description > div {
   margin-bottom: 1rem;
+}
+.description > div span:first-child {
+  color: whitesmoke;
 }
 .details .youtubeTrailer {
   width: 100%;

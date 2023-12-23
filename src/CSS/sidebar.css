@@ -53,9 +53,10 @@
 .openSidebar {
   position: absolute;
   left: -2rem;
-  top: 0;
+  top: 0.5rem;
   width: 2rem;
   border: 0.1rem solid whitesmoke;
+  border-radius: 0.3rem 0 0 0.3rem;
   border-right: none;
   background-color: rgb(49, 49, 49);
   color: whitesmoke;

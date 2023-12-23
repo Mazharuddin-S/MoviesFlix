@@ -27,9 +27,7 @@
 
   padding: 0.5rem;
 }
-.navbar a:hover {
-  color: gold;
-}
+
 .navbar a.active {
   background-color: red;
 }

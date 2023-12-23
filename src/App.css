@@ -6,6 +6,7 @@
 }
 .app .scrollUp {
   display: block;
+  border: none;
   color: white;
   width: 3rem;
   height: 3rem;

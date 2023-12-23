@@ -8,8 +8,8 @@
   border: 0.2rem solid;
   border-top: 0.2rem solid transparent;
   border-radius: 50%;
-  width: 2rem;
-  height: 2rem;
+  width: 3rem;
+  height: 3rem;
   animation: spin 1s linear infinite;
   margin-right: 1rem;
 }
