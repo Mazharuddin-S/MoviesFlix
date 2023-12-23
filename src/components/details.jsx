@@ -23,9 +23,11 @@ function Details() {
       .then(res => res.json())
       .then(result => {
         setData(() => result);
-        setVideokey(() => {
-          return result.videos.results[0].key;
-        });
+        if (result.videos.results.length != 0) {
+          setVideokey(() => {
+            return result.videos.results[0].key;
+          });
+        }
         setCast(() => result.credits.cast);
         setCrew(() => result.credits.crew);
       })
