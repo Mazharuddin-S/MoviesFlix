@@ -9,21 +9,20 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 
 function MultiGenres() {
   const [data, setData] = useState([]);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
   const [searchParam] = useSearchParams();
   const genres = searchParam.get("with_genres");
 
   useEffect(() => {
-    async function fetchData() {
-      const response = await fetch(`${genresAPI}&with_genres=${genres}`);
-      const data = await response.json();
-      setData(data.results);
-    }
-    fetchData();
+    fetch(`${genresAPI}&with_genres=${genres}`)
+      .then(res => res.json())
+      .then(result => setData(result.results))
+      .catch(err => setError("Error Fetching Data"));
   }, []);
   return (
     <React.Fragment>
-      {data.length != 0 ? (
+      {(data.length != 0) & !error ? (
         <div
           className="grid multiGenres"
           style={{ padding: data.length != 0 ? "0.5rem" : "0" }}

@@ -1,15 +1,16 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useRef, useState } from "react";
 import "../CSS/yearWise.css";
 import YearWiseMovie from "./YearWiseMovie";
 
 const LazyYear = lazy(() => import("./YearWiseMovie"));
 
 function MoviesByYear() {
-  console.log("movies by year loaded");
+  const ByYearRef = useRef();
+
   return (
-    <div className="byYear">
+    <div className="byYear" ref={ByYearRef}>
       <YearWiseMovie year={2012} />
-      <Suspense fallback="loading...">
+      <Suspense fallback={<div>loading...</div>}>
         <LazyYear year={2013} />
         <LazyYear year={2014} />
         <LazyYear year={2015} />

@@ -3,6 +3,7 @@ import "./App.css";
 import HomePage from "./components/Home";
 import MoviesByYear from "./components/moviesByYear";
 import Genres from "./components/genres";
+import ErrorPage from "./components/pageNotFound";
 import "./CSS/media480.css";
 import Search from "./components/search";
 import Spinner from "./components/spinner";
@@ -28,6 +29,7 @@ function App() {
         <Route path="/search" element={<Search />}></Route>
         <Route path="/details" element={<Details />} />
         <Route path="/multi-genres" element={<MultiGenres />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
 
       <button className="scrollUp" onClick={upHandler}>

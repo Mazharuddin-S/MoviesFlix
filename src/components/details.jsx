@@ -23,7 +23,9 @@ function Details() {
       .then(res => res.json())
       .then(result => {
         setData(() => result);
-        setVideokey(() => result.videos.results[0].key);
+        setVideokey(() => {
+          return result.videos.results[0].key;
+        });
         setCast(() => result.credits.cast);
         setCrew(() => result.credits.crew);
       })
@@ -32,51 +34,68 @@ function Details() {
   }, []);
 
   return (
-    <div className="details">
-      <div>
-        <button onClick={() => navigate("/")}>
-          <FontAwesomeIcon icon={faHome} size="xl" />
-        </button>
-      </div>
-      <div className="youtubeTrailer">
-        <iframe src={`${youtubeLink}${videoKey}`} allowFullScreen></iframe>
-      </div>
+    <>
+      {Object.keys(data).length != 0 ? (
+        <div className="details">
+          <div>
+            <button onClick={() => navigate("/")}>
+              <FontAwesomeIcon icon={faHome} size="xl" />
+            </button>
+          </div>
+          <div className="youtubeTrailer">
+            {videoKey && (
+              <iframe
+                src={`${youtubeLink}${videoKey}`}
+                allowFullScreen
+              ></iframe>
+            )}
+          </div>
 
-      <div className="description">
-        <div>
-          <span>Title</span> - {data.original_title}
+          <div className="description">
+            <div>
+              <span>Title</span> - {data.original_title}
+            </div>
+            <div>
+              <span>Genre</span> -
+              {data.genres.map(item => (
+                <span key={item.id}>{item.name} , </span>
+              ))}
+            </div>
+            <div>
+              <span>Cast - </span>
+              {cast.map((item, index) => {
+                return (
+                  index <= 8 && (
+                    <span key={item.credit_id}>
+                      {item.name} {"  , "}
+                    </span>
+                  )
+                );
+              })}
+            </div>
+            <div>
+              <span> Director - </span>
+              {crew.map(item => {
+                return (
+                  item.job.toLowerCase() == "director" && (
+                    <span key={item.credit_id}>{item.name}</span>
+                  )
+                );
+              })}
+            </div>
+            <div>
+              <span>Ratings - </span> {data.vote_average} / 10 {"  "}
+              <FontAwesomeIcon icon={faStar} color="gold" />
+            </div>
+            <div>
+              <span>Overview - </span> <br /> {data.overview}
+            </div>
+          </div>
         </div>
-        <div>
-          <span>Cast - </span>
-          {cast.map((item, index) => {
-            return (
-              index <= 8 && (
-                <span key={item.credit_id}>
-                  {item.name} {"  , "}{" "}
-                </span>
-              )
-            );
-          })}
-        </div>
-        <div>
-          <span> Director - </span>
-          {crew.map(item => {
-            return (
-              item.job.toLowerCase() == "director" && (
-                <span key={item.credit_id}>{item.name}</span>
-              )
-            );
-          })}
-        </div>
-        <div>
-          <span>Ratings - </span> {data.vote_average} / 10 {"  "}
-          <FontAwesomeIcon icon={faStar} color="gold" />
-        </div>
-        <div>
-          <span>Overview - </span> <br /> {data.overview}
-        </div>
-      </div>
-    </div>
+      ) : (
+        <Spinner color={{ one: "skyblue" }} />
+      )}
+    </>
   );
 }
 export default Details;

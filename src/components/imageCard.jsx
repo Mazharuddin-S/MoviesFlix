@@ -13,6 +13,10 @@ function ImageCard({ item }) {
         src={`${ImageAPI}${item.poster_path}`}
         alt="...loading"
         loading="lazy"
+        style={{ filter: "blur(0.1rem)" }}
+        onLoad={event => {
+          event.target.style.filter = "blur(0px)";
+        }}
       />
       <div>
         <span>{item.title}</span>
