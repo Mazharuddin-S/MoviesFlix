@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import ImageCard from "./imageCard";
 import Spinner from "./spinner";
+import { HomePageAPI } from "../assets/APIs&Key";
 
 function YearWiseMovie({ year }) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=2dca580c2a14b55200e784d157207b4d&sort_by=popularity.desc&page=1&vote_count.gte=100&primary_release_year=${year}`
-    )
+    fetch(`${HomePageAPI}&primary_release_year=${year}`)
       .then(res => res.json())
       .then(result => setData(result.results));
   }, []);

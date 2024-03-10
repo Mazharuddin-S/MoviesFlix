@@ -1,7 +1,7 @@
-import Header from "./header";
+import Header from "../components/header";
 import "../CSS/home.css";
 import { Outlet } from "react-router-dom";
-import SideBar from "./sidebar";
+import SideBar from "../components/sidebar";
 
 function HomePage() {
   console.log("home page loaded");

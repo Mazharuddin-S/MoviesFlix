@@ -1,16 +1,21 @@
 import { Routes, Route, useSearchParams } from "react-router-dom";
 import "./App.css";
-import HomePage from "./components/Home";
-import MoviesByYear from "./components/moviesByYear";
-import Genres from "./components/genres";
-import ErrorPage from "./components/pageNotFound";
+import HomePage from "./pages/Home";
+import MoviesByYear from "./pages/moviesByYear";
+import Genres from "./pages/genres";
+import ErrorPage from "./pages/pageNotFound";
 import "./CSS/media480.css";
-import Search from "./components/search";
+import Search from "./pages/search";
 import Spinner from "./components/spinner";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
-import Details from "./components/details";
-import MultiGenres from "./components/multiGenres";
+import Details from "./pages/details";
+import MultiGenres from "./pages/multiGenres";
+import Login from "./pages/loginPg";
+import SignUp from "./pages/signUp";
+import FavoriteList from "./pages/favoriteList";
+import WatchList from "./pages/watchList";
+import Myprofile from "./pages/myprofile";
 
 function App() {
   const [searchParam] = useSearchParams();
@@ -22,10 +27,16 @@ function App() {
   return (
     <div className="app">
       <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signUp" element={<SignUp />} />
+        <Route path="/myprofile" element={<Myprofile />} />
         <Route path="/" element={<HomePage />}>
           <Route path="" element={<MoviesByYear />} />
           <Route path={`/genres/${genreType}`} element={<Genres />} />
         </Route>
+        <Route path="/favorite" element={<FavoriteList />} />
+        <Route path="/watchlist" element={<WatchList />} />
+
         <Route path="/search" element={<Search />}></Route>
         <Route path="/details" element={<Details />} />
         <Route path="/multi-genres" element={<MultiGenres />} />

@@ -1,0 +1,46 @@
+.loginPg {
+  display: flex;
+  height: 100vh;
+  padding: 0 1rem;
+  justify-content: center;
+  align-items: center;
+}
+.loginDetails {
+  background-color: white;
+  border: 0.1rem solid black;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0.3rem 0.3rem 0.2rem gray;
+
+  height: min-content;
+}
+
+.loginUsername,
+.loginPass {
+  margin: 0.5rem 0;
+  border: 0.1rem solid;
+  border-radius: 0.4rem;
+  padding: 0.5rem;
+}
+.loginDetails input {
+  outline: none;
+  border: none;
+  user-select: none;
+  font-size: 1rem;
+}
+.loginDetails input:focus {
+  color: green;
+}
+.loginDetails button[type="submit"] {
+  margin: 0.5rem auto;
+  background-color: skyblue;
+  border: none;
+
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+.loginDetails button[type="submit"]:hover {
+  background-color: greenyellow;
+}

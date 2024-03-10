@@ -1,0 +1,41 @@
+.signUp {
+  display: flex;
+  height: 100vh;
+  padding: 0 1rem;
+  justify-content: center;
+  align-items: center;
+}
+.signUpDetails {
+  border: 0.1rem solid gray;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  box-shadow: 0.3rem 0.3rem 0.2rem gray;
+}
+
+.signUpDetails input {
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
+.signUpDetails input:focus {
+  outline-color: green;
+}
+.signUpDetails > div {
+  margin: 0.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.signUpDetails button[type="submit"] {
+  margin: 0.5rem auto;
+  background-color: skyblue;
+  border: none;
+
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+.signUpDetails button[type="submit"]:hover {
+  background-color: greenyellow;
+}

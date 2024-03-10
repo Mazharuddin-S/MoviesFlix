@@ -5,18 +5,25 @@ import {
   faCaretDown,
   faBars,
   faGlobe,
+  faUser,
+  faCartPlus,
+  faHeart,
 } from "@fortawesome/free-solid-svg-icons";
 import { useRef, useState } from "react";
 
 import { genresAPI } from "../assets/APIs&Key";
 import { useNavigate } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
 
 function SideBar() {
+  const dispatch = useDispatch();
   const [genreDisplay, setGenreDisplay] = useState(false);
   const navigate = useNavigate();
   const [sidebar, setSidebar] = useState(false);
   const [genre, setGenres] = useState([]);
   const sidebarRef = useRef();
+
+  const currentUser = useSelector(store => store.currentUser);
 
   function closeSideBar() {
     let width = sidebarRef.current.offsetWidth;
@@ -35,6 +42,11 @@ function SideBar() {
       return [...prev, event.target.value];
     });
   }
+  function loginHandler() {
+    navigate("/myprofile");
+  }
+
+  //
   return (
     <div className="sidebar" ref={sidebarRef}>
       <button
@@ -235,6 +247,18 @@ function SideBar() {
               Search
             </button>
           </div>
+        </div>
+
+        <div className="sidebarLogin">
+          <span>
+            <FontAwesomeIcon
+              icon={faUser}
+              color="skyblue"
+              size="xl"
+              style={{ marginRight: "1rem" }}
+            />
+          </span>
+          <span onClick={loginHandler}>My Account</span>
         </div>
       </div>
     </div>

@@ -2,10 +2,16 @@ import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { searchById, api_key, youtubeLink } from "../assets/APIs&Key";
 import "../CSS/details.css";
-import Spinner from "./spinner";
-import { rating } from "./ratingFunction";
+import Spinner from "../components/spinner";
+import { rating } from "../components/ratingFunction";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faStar } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHeart,
+  faHome,
+  faList,
+  faStar,
+} from "@fortawesome/free-solid-svg-icons";
+import { useDispatch } from "react-redux";
 
 function Details() {
   const [data, setData] = useState({});
@@ -15,6 +21,7 @@ function Details() {
   const navigate = useNavigate();
   const [searchParam] = useSearchParams();
   const movieId = searchParam.get("movieId");
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetch(
@@ -40,7 +47,7 @@ function Details() {
       {Object.keys(data).length != 0 ? (
         <div className="details">
           <div>
-            <button onClick={() => navigate("/")}>
+            <button className="details-home" onClick={() => navigate("/")}>
               <FontAwesomeIcon icon={faHome} size="xl" />
             </button>
           </div>
@@ -54,6 +61,22 @@ function Details() {
           </div>
 
           <div className="description">
+            <div>
+              <button
+                onClick={() =>
+                  dispatch({ type: "ADD_TO_WATCHLIST", payload: movieId })
+                }
+              >
+                <FontAwesomeIcon icon={faList} size="xl" /> Add to Watchlist
+              </button>
+              <button
+                onClick={() =>
+                  dispatch({ type: "ADD_TO_FAVORITE", payload: movieId })
+                }
+              >
+                <FontAwesomeIcon icon={faHeart} size="xl" /> Add to Favorite
+              </button>
+            </div>
             <div>
               <span>Title</span> - {data.original_title}
             </div>

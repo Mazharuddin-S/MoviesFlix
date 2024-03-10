@@ -1,8 +1,8 @@
 import React, { lazy, Suspense, useEffect, useRef, useState } from "react";
 import "../CSS/yearWise.css";
-import YearWiseMovie from "./YearWiseMovie";
+import YearWiseMovie from "../components/YearWiseMovie";
 
-const LazyYear = lazy(() => import("./YearWiseMovie"));
+const LazyYear = lazy(() => import("../components/YearWiseMovie"));
 
 function MoviesByYear() {
   const ByYearRef = useRef();

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { ImageAPI, genresAPI } from "../assets/APIs&Key";
-import Spinner from "./spinner";
-import ImageCard from "./imageCard";
+import Spinner from "../components/spinner";
+import ImageCard from "../components/imageCard";
 
 import "../CSS/genres.css";
 

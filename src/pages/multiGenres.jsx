@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import "../CSS/multigenres.css";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { genresAPI } from "../assets/APIs&Key";
-import ImageCard from "./imageCard";
-import Spinner from "./spinner";
+import ImageCard from "../components/imageCard";
+import Spinner from "../components/spinner";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 

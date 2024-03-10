@@ -7,12 +7,12 @@
 .details > div:first-child {
   padding: 0.5rem 1rem;
 }
-.details button {
+.details .details-home {
   border: none;
   background-color: rgb(49, 49, 49);
   color: whitesmoke;
 }
-.details button:hover {
+.details .details-home:hover {
   color: gold;
 }
 .details .description {
@@ -20,6 +20,13 @@
 }
 .description > div {
   margin-bottom: 1rem;
+}
+.description button {
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+.description button:hover {
+  border-color: red;
 }
 .description > div span:first-child {
   color: whitesmoke;

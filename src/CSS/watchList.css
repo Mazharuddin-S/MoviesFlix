@@ -1,0 +1,93 @@
+.byYear {
+  background-color: rgb(63, 62, 62);
+  color: white;
+}
+
+.watchListContainer {
+  width: calc(100vw - 2rem);
+  overflow: auto;
+}
+.watchListContainer::-webkit-scrollbar {
+  height: 0.5rem;
+}
+.watchListContainer::-webkit-scrollbar-track {
+  background-color: gray;
+}
+.watchListContainer::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 0.25rem;
+}
+.watchList {
+  display: flex;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.watchList .favoriteCard {
+  position: relative;
+  width: 20vw;
+  flex-shrink: 0;
+  height: 50vh;
+  margin-right: 0.5rem;
+}
+.favoriteCard button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
+  border: none;
+  border-radius: 0;
+}
+.favoriteCard button:hover {
+  color: red;
+}
+
+.watchList .favoriteCard:hover {
+  border: 0.2rem solid whitesmoke;
+}
+.watchList .favoriteCard a:hover {
+  color: yellow;
+}
+.watchList .favoriteCard:last-child {
+  margin-right: 0;
+}
+.watchList .favoriteCard a {
+  position: absolute;
+  display: block;
+  width: 100%;
+  background-color: rgba(53, 52, 52, 0.5);
+  bottom: 0;
+  color: white;
+  padding: 0.5rem;
+}
+.favoriteCard span {
+  display: block;
+  word-break: normal;
+}
+.watchList h2 {
+  grid-column: 1/-1;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+.watchList .favoriteCard img {
+  height: 100%;
+  width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+  .watchList {
+    margin-bottom: 0.5rem;
+  }
+
+  .watchListContainer::-webkit-scrollbar {
+    display: none;
+  }
+  .watchList .favoriteCard {
+    display: block;
+    height: 35vh;
+    width: calc(50vw - 1rem);
+
+    position: relative;
+  }
+}

@@ -1,0 +1,20 @@
+.myprofile {
+  padding: 1rem;
+  min-height: 100vh;
+  color: whitesmoke;
+  background-color: rgb(49, 49, 49);
+}
+.myprofile a {
+  text-decoration: none;
+}
+.myprofile button {
+  border-radius: 0.5rem;
+
+  padding: 0.5rem 1rem;
+}
+.myprofile button:hover {
+  border-color: red;
+}
+.addNow {
+  color: yellow;
+}

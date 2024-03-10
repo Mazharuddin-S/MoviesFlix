@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "../CSS/search.css";
 
-import ImageCard from "./imageCard";
+import ImageCard from "../components/imageCard";
 import { useNavigate } from "react-router";
 import { searchAPI } from "../assets/APIs&Key";
 import { useSearchParams } from "react-router-dom";

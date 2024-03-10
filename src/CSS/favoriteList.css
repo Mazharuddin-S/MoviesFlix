@@ -1,0 +1,85 @@
+.byYear {
+  background-color: rgb(63, 62, 62);
+  color: white;
+}
+
+.favoriteListContainer {
+  width: calc(100vw - 2rem);
+  overflow: auto;
+}
+.favoriteListContainer::-webkit-scrollbar {
+  height: 0.5rem;
+}
+.favoriteListContainer::-webkit-scrollbar-track {
+  background-color: gray;
+}
+.favoriteListContainer::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 0.25rem;
+}
+
+.favoriteList {
+  display: flex;
+
+  position: relative;
+
+  margin-bottom: 0.5rem;
+}
+
+.favoriteList .favoriteCard {
+  position: relative;
+  width: 20vw;
+  flex-shrink: 0;
+  height: 50vh;
+  margin-right: 0.5rem;
+}
+.favoriteList .favoriteCard:hover {
+  border: 0.2rem solid whitesmoke;
+}
+.favoriteList .favoriteCard:last-child {
+  margin-right: 0;
+}
+.favoriteList .favoriteCard a {
+  position: absolute;
+  display: block;
+  width: 100%;
+  background-color: rgba(53, 52, 52, 0.5);
+  bottom: 0;
+  color: white;
+  padding: 0.5rem;
+}
+
+.favoriteList .favoriteCard a:hover {
+  color: yellow;
+}
+.favoriteCard span {
+  display: block;
+  word-break: normal;
+}
+.favoriteList h2 {
+  grid-column: 1/-1;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+.favoriteList .favoriteCard img {
+  height: 100%;
+  width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+  .favoriteList {
+    margin-bottom: 0.5rem;
+  }
+
+  .favoriteListContainer::-webkit-scrollbar {
+    display: none;
+  }
+  .favoriteList .favoriteCard {
+    display: block;
+    height: 35vh;
+    width: calc(50vw - 1rem);
+
+    position: relative;
+  }
+}
